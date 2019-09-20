@@ -1,0 +1,22 @@
+
+<body class="text-center">
+<div class="container">
+<img class="mb-4" src="../../assets/images/career.png" alt="" width="72" height="72">
+<h1 class="h3">Login</h1>
+<form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
+    <div class="col-sm-4 offset-md-4">
+        <div class="form-group">
+         <!-- <label for="email">Email</label> -->
+          <input type="email" class="form-control" id="email" placeholder="Email" name="email" email
+          ngModel required>
+        </div>
+        <div class="form-group">
+         <!-- <label for="pass">Senha</label> -->
+          <input type="password" class="form-control" id="pass" placeholder="Senha" name="password"
+          ngModel required>
+        </div> 
+    </div>    
+        <button type="submit" class="btn btn-primary" [disabled]="!loginForm.valid">Entrar</button>
+</form>
+</div>
+</body>

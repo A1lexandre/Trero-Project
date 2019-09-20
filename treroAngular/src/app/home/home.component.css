@@ -1,0 +1,47 @@
+#initial-image {
+  background-image: url('../../assets/images/career.png');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  height: 500px;
+  background-size: cover; 
+  margin-bottom: 0;
+  text-align: center;
+}
+
+.card-label {
+    height: 200px;
+    padding-top: 80px;
+}
+
+.foto-perfil {
+    background-color: gray;
+    width: 140px;
+    height: 140px;
+}
+
+.footer {
+  padding-top: 20px;
+  background-color: #343a40;
+  color: white;
+  font-weight: bold;
+}
+
+#descritiveCard {
+  background-color: #080430;
+}
+
+#descritiveText {
+  font-weight: bold;
+  color: white;
+}
+
+.btn-primary {
+  background-color: rgb(16, 97, 16);
+  margin-top: 330px;
+  border-color: transparent;
+}
+
+.col-sm-6 {
+  
+}

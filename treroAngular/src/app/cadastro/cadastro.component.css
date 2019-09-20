@@ -1,0 +1,24 @@
+
+.container {
+    margin-top: 10px;
+    width: 100vw;
+   /* height: 100vh; */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.card {
+    width: 80%;
+}
+
+.row {
+    margin-bottom: 10px;
+}
+
+.center-items {
+    justify-content: center;
+    margin-bottom: 0px;
+}
+
+

@@ -1,0 +1,64 @@
+
+<div class="container">
+<div class="card">
+    <div class="card-header">
+     Cadastre-se no Trero!
+    </div>
+    <div class="card-body">
+  
+      <h5>Digite seus dados abaixo:</h5>
+      <form #cadForm="ngForm" (ngSubmit)="submit(cadForm)">
+        <div class="row">
+          <div class="col-sm-6">
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" class="form-control" [ngClass]="aplicaErrorStyle(nome)" name="nome"
+            placeholder="Your name" ngModel #nome="ngModel" required>
+            <campo-control-erro [mostraErro]="verificaErros(nome)" msg="Digite um nome válido"></campo-control-erro>
+          </div>
+          <div class="col-sm-3">
+            <label for="data_nasc">Data de Nascimento:</label>
+            <input type="date" id="data_nasc" class="form-control" [ngClass]="aplicaErrorStyle(dataNasc)" name="data_nasc"
+            placeholder="Birth date" ngModel #dataNasc="ngModel" required>
+            <campo-control-erro [mostraErro]="verificaErros(dataNasc)" msg="Digite uma data válida"></campo-control-erro>
+          </div>
+        </div>
+        <div class="row">
+        <div class="col-sm-6">
+            <label for="email">Email:</label>
+            <input type="email" id="email" class="form-control" [ngClass]="aplicaErrorStyle(email)" email name="email"
+            placeholder="Email address" ngModel #email="ngModel" required>
+            <campo-control-erro [mostraErro]="verificaErros(email)" msg="Digite um email válido"></campo-control-erro>
+        </div>
+        <div class="col-sm-4">
+            <label for="sexo">Sexo:</label>
+            <select class="form-control" [ngClass]="aplicaErrorStyle(sexo)" id="sexo" name="sexo" 
+            ngModel #sexo="ngModel" required>
+              <option value="" disabled>Select</option>
+              <option value="1">Masculino</option>
+              <option value="2">Feminino</option>
+            </select>
+            <campo-control-erro [mostraErro]="verificaErros(sexo)" msg="Escolha uma das opções"></campo-control-erro>
+        </div>
+        </div>
+        <div class="row">
+        <div class="col-sm-5">
+           <label for="password">Senha:</label>
+           <input type="password" id="password" class="form-control" [ngClass]="aplicaErrorStyle(password)" name="password"
+           placeholder="Password" ngModel minlength="6" #password="ngModel" required>
+           <campo-control-erro [mostraErro]="verificaErros(password)" msg="Digite uma senha de no mínimo 6 caracteres"></campo-control-erro>
+        </div>
+        <div class="col-sm-5 offset-sm-1">
+           <label for="passwordConfirmation">Confirme a senha:</label>
+           <input type="password" id="passwordConfirmation" class="form-control" [ngClass]="aplicaErrorStyle(passwordConfirmation)" name="passwordConfirmation"
+           placeholder="Confirmation" ngModel #passwordConfirmation="ngModel" [appMatchedPassword]=password.value required>
+           <campo-control-erro [mostraErro]="verificaErros(passwordConfirmation)" msg="Digite a confirmação da senha"></campo-control-erro>
+           <campo-control-erro [mostraErro]="verificaSenha(password, passwordConfirmation)" msg="As senhas devem ser iguais"></campo-control-erro>
+        </div>
+        </div>
+        <div class="row center-items">
+        <button type="submit" class="btn btn-primary" [disabled]="cadForm.invalid">Cadastre-me</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
