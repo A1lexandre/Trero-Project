@@ -11,9 +11,9 @@
         <div class="row">
           <div class="col-sm-6">
             <label for="nome">Nome:</label>
-            <input type="text" id="nome" class="form-control" [ngClass]="aplicaErrorStyle(nome)" name="nome"
-            placeholder="Your name" ngModel #nome="ngModel" required>
-            <campo-control-erro [mostraErro]="verificaErros(nome)" msg="Digite um nome válido"></campo-control-erro>
+            <input type="text" id="name" class="form-control" [ngClass]="aplicaErrorStyle(name)" name="name"
+            placeholder="Your name" ngModel #name="ngModel" required>
+            <campo-control-erro [mostraErro]="verificaErros(name)" msg="Digite um nome válido"></campo-control-erro>
           </div>
           <div class="col-sm-3">
             <label for="data_nasc">Data de Nascimento:</label>

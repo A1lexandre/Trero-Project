@@ -17,9 +17,16 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::middleware('auth:api')->get('/teste', function () {
-    return 'Olá, Bem vindo!';
-});
+// rotas cujo cliente precisa estar autenticado para acessar
+Route::middleware('auth:api')->group(function () {
+    Route::put('/editar', 'UserController@edit');
+    Route::post('/curriculo', 'CurriculumController@create');
+    Route::put('/curriculo/editar', 'CurriculumController@edit');
+    Route::get('/logout', 'Controller@logout');
+ }
+);
+
+// rotas públicas
 
 Route::get('/latest', 'HomeController@inicial');
 
