@@ -34,8 +34,8 @@
             <select class="form-control" [ngClass]="aplicaErrorStyle(sexo)" id="sexo" name="sexo" 
             ngModel #sexo="ngModel" required>
               <option value="" disabled>Select</option>
-              <option value="1">Masculino</option>
-              <option value="2">Feminino</option>
+              <option value="M">Masculino</option>
+              <option value="F">Feminino</option>
             </select>
             <campo-control-erro [mostraErro]="verificaErros(sexo)" msg="Escolha uma das opções"></campo-control-erro>
         </div>

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { UserService } from './../shared/services/user/user.service';
+
 @Component({
   selector: 'app-cadastro',
   templateUrl: './cadastro.component.html',
@@ -7,18 +9,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CadastroComponent implements OnInit {
 
-  usuario: any = {
-    nome: null
-  }
-
-  constructor() { }
+  constructor(private userService: UserService) { }
 
   ngOnInit() {
-  }
-
-  submit(f) {
-    console.log(f);
-    console.log(this.usuario.nome);
   }
 
   // retorna uma mensagem de erro caso o campo tenha sido tocado e esteja inválido
@@ -40,6 +33,16 @@ export class CadastroComponent implements OnInit {
   // aplica o estilo ao campo quando este está inválido (utiliza cor vermelha)
   aplicaErrorStyle(campo) {
     return {'is-invalid': this.verificaErros(campo)}
+  }
+
+  submit(f) {
+    console.log(f.value);
+    this.userService.createUser(f.value)
+    .subscribe(
+      data => {
+        console.log(data);
+      }
+    );
   }
 
 }

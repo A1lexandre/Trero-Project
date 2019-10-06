@@ -28,6 +28,7 @@ class UserController extends Controller
           'password' => 'required'
       ]);*/
 
+
       $dadosValidados = Validator::make($request->all(), [
           'name' => 'required|max:255',
           'data_nasc' => 'required|date',

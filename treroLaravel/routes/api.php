@@ -32,7 +32,7 @@ Route::get('/latest', 'HomeController@inicial');
 
 Route::post('/login', 'Controller@login');
 
-Route::post('/cadastro', 'UserController@create');
+Route::post('/create', 'UserController@create');
 
 Route::put('/editar', 'UserController@edit');
 
