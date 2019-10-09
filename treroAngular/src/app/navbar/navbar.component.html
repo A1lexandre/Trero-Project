@@ -1,12 +1,25 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <a class="navbar-brand" href="#"><strong>Trero</strong></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav">
+      <div class="navbar-nav all-width">
         <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
-        <a class="nav-item nav-link" routerLinkActive="active" routerLink="/login">Login</a>
-      </div>
+        <a *ngIf="!isLoggedIn" class="nav-item nav-link" routerLinkActive="active" routerLink="/login">Login</a>
+        <div *ngIf="isLoggedIn" class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Bemvindo, {{ userName }}
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item cursor" href="#">Meu currículo</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item cursor" (click)="logout()">Logout</a>
+          </div>
+        </div>
+        <div class="right-pos">
+        <a class="nav-item nav-link" routerLinkActive="active" routerLink="/curriculos">Explorar currículos</a>
+       </div>
+      </div> 
     </div>
   </nav>

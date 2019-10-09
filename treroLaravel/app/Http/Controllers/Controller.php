@@ -49,6 +49,7 @@ class Controller extends BaseController
             $token = $user->createToken('Token de autenticação')->accessToken;
 
             return response([
+              'user' => $user,
               'token' => $token,
             ], 200);
             
@@ -73,7 +74,7 @@ class Controller extends BaseController
 
 public function logout(Request $request) {
 
-  //$token = $request->user()->token();
+  $token = $request->user()->token();
   $token->revoke();
 
   return response(['msg' => 'Você não está mais logado no sistema'], 200);

@@ -2,8 +2,9 @@
   background-image: url('../../assets/images/career.png');
   background-repeat: no-repeat;
   background-attachment: fixed;
-  background-position: center;
+  background-position: center center;
   height: 500px;
+  width:100%;
   background-size: cover; 
   margin-bottom: 0;
   text-align: center;

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
 import { UserService } from './../shared/services/user/user.service';
+import { AuthService } from './../shared/services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cadastro',
@@ -9,7 +11,9 @@ import { UserService } from './../shared/services/user/user.service';
 })
 export class CadastroComponent implements OnInit {
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService, 
+              private authService: AuthService,
+              private router: Router) { }
 
   ngOnInit() {
   }
@@ -36,11 +40,11 @@ export class CadastroComponent implements OnInit {
   }
 
   submit(f) {
-    console.log(f.value);
     this.userService.createUser(f.value)
     .subscribe(
-      data => {
-        console.log(data);
+      (data: any) => {
+        this.authService.setData(data);
+        this.router.navigate(['']);
       }
     );
   }

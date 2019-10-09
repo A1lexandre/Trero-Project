@@ -15,8 +15,10 @@
           <input type="password" class="form-control" id="pass" placeholder="Senha" name="password"
           ngModel required>
         </div> 
+        <campo-control-erro [mostraErro]="withError" [msg]="errorMsg"></campo-control-erro>
     </div>    
         <button type="submit" class="btn btn-primary" [disabled]="!loginForm.valid">Entrar</button>
 </form>
+
 </div>
 </body>
