@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -15,6 +16,7 @@ import { CampoControlErroComponent } from './shared/campo-control-erro/campo-con
 import { MatchedPasswordDirective } from './shared/matched-password.directive';
 import { NavbarComponent } from './navbar/navbar.component';
 import { HttpClientModule } from '@angular/common/http';
+import { OpenCloseComponent } from './open-close/open-close.component';
 
 
 @NgModule({
@@ -27,9 +29,11 @@ import { HttpClientModule } from '@angular/common/http';
     CampoControlErroComponent,
     MatchedPasswordDirective,
     NavbarComponent,
+    OpenCloseComponent
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     HttpClientModule,
     AppRoutingModule,
     CurriculumModule,
