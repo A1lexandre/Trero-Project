@@ -1,0 +1,30 @@
+<!--<div [@openClose]="isOpen ? 'open' : 'close'" class="open-close-container"
+   (click)="toggle()">
+ <p>this box is now {{ isOpen ? 'open' : 'close'}}!</p>
+</div> 
+
+<div @myInsertRemoveTrigger *ngIf="isShown" class="insert-remove-container">
+  <p>The box is inserted</p>
+</div>
+
+<button (click)="toggle2()">Appear/disappear</button>
+
+<div [@openClose2]="isOpen2 ? true : false" class="insert-remove-container">
+  <p>This animation with boolean</p>
+</div>
+
+<button (click)="toggle3()">animate</button>
+
+<div [@openClose3]="isOpen3 ? 'open' : 'close'" class="open-close-container"
+   (click)="toggle()">
+ <p>this box is now {{ isOpen ? 'open' : 'close'}}!</p>
+</div>
+
+<button (click)="toggle4()">animate</button> -->
+
+<div *ngIf="showDiv" [@flyInOut] style="background-color: blueviolet; width: 100px; height: 100px">
+  A div que entra pela esquerda e sai pela direita
+</div>
+
+<button (click)="showDiv = !showDiv ">Aparece/desaparece</button>
+

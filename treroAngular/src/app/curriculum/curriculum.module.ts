@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { CurriculumRoutingModule } from './curriculum-routing.module';
 import { CurriculumListComponent } from './curriculum-list/curriculum-list.component';
 import { CurriculumDetailComponent } from './curriculum-detail/curriculum-detail.component';
+import { MyCurriculumComponent } from './my-curriculum/my-curriculum.component';
 import { CurriculumFormComponent } from './curriculum-form/curriculum-form.component';
 
 
@@ -11,6 +12,7 @@ import { CurriculumFormComponent } from './curriculum-form/curriculum-form.compo
   declarations: [
     CurriculumListComponent,
     CurriculumDetailComponent,
+    MyCurriculumComponent,
     CurriculumFormComponent
   ],
   imports: [

@@ -12,7 +12,7 @@ const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'login', component: LoginComponent, 
     canActivate: [AuthGuard] },
-  { path: 'curricula', 
+  { path: 'curricula',
     loadChildren: () => import('./curriculum/curriculum.module')
                         .then(mod => mod.CurriculumModule)},
   { path: 'cadastro', component: CadastroComponent,

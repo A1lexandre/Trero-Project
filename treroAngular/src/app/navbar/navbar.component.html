@@ -12,13 +12,13 @@
             Bemvindo, {{ userName }}
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item cursor" href="#">Meu currículo</a>
+            <a class="dropdown-item cursor" routerLink="/curricula/my-curriculum">Meu currículo</a>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item cursor" (click)="logout()">Logout</a>
           </div>
         </div>
         <div class="right-pos">
-        <a class="nav-item nav-link" routerLinkActive="active" routerLink="/curricula">Explorar currículos</a>
+        <a class="nav-item nav-link" routerLinkActive="active" routerLink="/curricula"><b>Explorar currículos</b></a>
        </div>
       </div> 
     </div>
