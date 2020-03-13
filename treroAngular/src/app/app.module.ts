@@ -16,7 +16,6 @@ import { CampoControlErroComponent } from './shared/campo-control-erro/campo-con
 import { MatchedPasswordDirective } from './shared/matched-password.directive';
 import { NavbarComponent } from './navbar/navbar.component';
 import { HttpClientModule } from '@angular/common/http';
-import { OpenCloseComponent } from './open-close/open-close.component';
 
 
 @NgModule({
@@ -28,15 +27,14 @@ import { OpenCloseComponent } from './open-close/open-close.component';
     CadastroComponent,
     CampoControlErroComponent,
     MatchedPasswordDirective,
-    NavbarComponent,
-    OpenCloseComponent
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    AppRoutingModule,
     CurriculumModule,
+    AppRoutingModule,
     FormsModule,
     ReactiveFormsModule
   ],

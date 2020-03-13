@@ -6,13 +6,16 @@ import { GeneralInformationComponent } from './general-information/general-infor
 import { JobComponent } from './job/job.component';
 import { EducationComponent } from './education/education.component';
 import { ExtracurricularActivityComponent } from './extracurricular-activity/extracurricular-activity.component';
-import { MyCurriculumComponent } from './my-curriculum/my-curriculum.component';
 
 
 
 
 @NgModule({
-  declarations: [GeneralInformationComponent, JobComponent, EducationComponent, ExtracurricularActivityComponent, MyCurriculumComponent],
+  declarations: [
+    GeneralInformationComponent,
+    JobComponent,
+    EducationComponent,
+    ExtracurricularActivityComponent],
   imports: [
     CommonModule,
     CurriculumContentRoutingModule

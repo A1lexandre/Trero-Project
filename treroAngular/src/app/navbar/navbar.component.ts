@@ -36,7 +36,7 @@ export class NavbarComponent implements OnInit {
     .subscribe(msg => {
       console.log(msg);
       this.authService.revokeAuth();
-    })
+    });
   }
 
 }

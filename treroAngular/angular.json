@@ -115,6 +115,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "treroAngular"
+    }
+  },
+  "defaultProject": "treroAngular",
+  "cli": {
+    "analytics": false
+  }
 }
