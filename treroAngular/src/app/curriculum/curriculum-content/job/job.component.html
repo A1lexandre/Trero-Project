@@ -1,1 +1,20 @@
 <p>job works!</p>
+
+<div *ngFor="let jobForm of jobForms.controls; let i = index">
+  <div formGroup="'i'">{{i}}
+    <div class="form-group">
+        <label for="0">Empresa:</label>
+        <input type="text" class="form-control" id="0" formControlName="nome_empresa"
+                         placeholder="Digite aqui o nome da empresa">
+    </div>
+    <div class="form-group">
+        <label for="1">Cargo:</label>
+        <input type="text" class="form-control" id="1" formControlName="cargo"
+                         placeholder="Digite aqui o seu cargo">
+    </div>
+</div>
+</div>
+
+<div class=container>
+  {{ this.jobForms.value | json}}
+</div>
