@@ -9,24 +9,63 @@ import { FormBuilder, FormGroup, Validators, FormArray } from '@angular/forms';
 })
 export class JobComponent implements OnInit {
 
+  existingJobForms: FormArray;
   jobForms: FormArray;
+
+  existingJobs = [
+    {cargo: 'Cumin', nome_empresa: 'Rufinos'},
+    {cargo: 'Programador', nome_empresa: 'WebDevop'},
+    {cargo: 'Programador Java Pleno', nome_empresa: 'Accenture'}
+  ];
 
   constructor(private fBuilder: FormBuilder) { }
 
   ngOnInit() {
 
-    this.jobForms = this.fBuilder.array([this.jobForm()]);
+    this.existingJobForms = this.fBuilder.array([]);
+    this.jobForms = this.fBuilder.array([]);
+
+    this.getSetExistingJobs();
 
   }
 
-  jobForm(): FormGroup {
-    return this.fBuilder.group({
-      cargo: [null, [Validators.required]],
-      nome_empresa: [null, [Validators.required]],
-      entrada: [null, [Validators.required]],
-      saida: [null, [Validators.required]],
-      desc_cargo: [null, [Validators.required]]
+  createJobForm(data = {
+    cargo: null,
+    nome_empresa: null
+  }): FormGroup {
+
+        return this.fBuilder.group({
+          cargo: [data.cargo, [Validators.required]],
+          nome_empresa: [data.nome_empresa, [Validators.required]],
+          entrada: [null, [Validators.required]],
+          saida: [null, [Validators.required]],
+          desc_cargo: [null, [Validators.required]]
+        });
+  }
+
+
+  addJobForm() {
+    this.jobForms.push(this.createJobForm());
+  }
+
+  getSetExistingJobs() {
+    this.existingJobs.forEach( job => {
+      this.existingJobForms.push(this.createJobForm(job));
     });
+    this.existingJobForms.disable();
   }
+
+  editJob(index) {
+    this.existingJobForms.controls[index].enable();
+  }
+
+  saveJob(index) {
+    this.existingJobForms.controls[index].disable();
+  }
+
+  deleteJob(index) {
+    this.existingJobForms.removeAt(index);
+  }
+
 
 }

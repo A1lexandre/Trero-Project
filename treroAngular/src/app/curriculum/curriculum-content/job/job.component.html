@@ -1,7 +1,31 @@
-<p>job works!</p>
 
-<div *ngFor="let jobForm of jobForms.controls; let i = index">
-  <div formGroup="'i'">{{i}}
+<div class="container form-container">
+
+    <div [formGroup]="existingJobForms" *ngFor="let existingJobForm of existingJobForms.controls; let i = index"
+      class="container form-card">
+    <form [formGroupName]="i">{{i}}
+      <div class="form-group">
+          <label for="0">Empresa:</label>
+          <input type="text" class="form-control" id="0" formControlName="nome_empresa"
+                          placeholder="Digite aqui o nome da empresa">
+      </div>
+      <div class="form-group">
+          <label for="1">Cargo:</label>
+          <input type="text" class="form-control" id="1" formControlName="cargo"
+                          placeholder="Digite aqui o seu cargo">
+      </div>
+    </form>
+    <div class="row">
+      <button *ngIf="!this.existingJobForms.controls[i].disabled" (click)="saveJob(i)">Salvar</button>
+      <button *ngIf="this.existingJobForms.controls[i].disabled" (click)="editJob(i)">Editar</button>
+      <button *ngIf="this.existingJobForms.controls[i].disabled" (click)="deleteJob(i)">Excluir</button>
+    </div>
+    </div>
+
+</div>
+
+<div [formGroup]="jobForms" *ngFor="let jobForm of jobForms.controls; let i = index">
+  <form [formGroupName]="i">{{i}}
     <div class="form-group">
         <label for="0">Empresa:</label>
         <input type="text" class="form-control" id="0" formControlName="nome_empresa"
@@ -12,8 +36,10 @@
         <input type="text" class="form-control" id="1" formControlName="cargo"
                          placeholder="Digite aqui o seu cargo">
     </div>
+  </form>
 </div>
-</div>
+
+<button (click)="addJobForm()">Adicionar Job</button>
 
 <div class=container>
   {{ this.jobForms.value | json}}
