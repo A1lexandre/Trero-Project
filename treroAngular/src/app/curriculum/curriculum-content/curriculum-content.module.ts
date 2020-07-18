@@ -8,7 +8,7 @@ import { GeneralInformationComponent } from './general-information/general-infor
 import { JobComponent } from './job/job.component';
 import { EducationComponent } from './education/education.component';
 import { ExtracurricularActivityComponent } from './extracurricular-activity/extracurricular-activity.component';
-
+import { CurriculumModule } from './../curriculum.module';
 
 
 
@@ -21,6 +21,7 @@ import { ExtracurricularActivityComponent } from './extracurricular-activity/ext
   imports: [
     CommonModule,
     CurriculumContentRoutingModule,
+    CurriculumModule,
     ReactiveFormsModule
   ]
 })
