@@ -1,18 +1,32 @@
 
-<div class="container form-container">
+<div class="container form-container" *ngIf="existingJobs.length; else semJob">
 
     <div [formGroup]="existingJobForms" *ngFor="let existingJobForm of existingJobForms.controls; let i = index"
       class="container form-card">
     <form [formGroupName]="i">{{i}}
-      <div class="form-group">
+      <div class="custom-row">
+      <div class="form-group custom-col-6">
           <label for="0">Empresa:</label>
-          <input type="text" class="form-control" id="0" formControlName="nome_empresa"
-                          placeholder="Digite aqui o nome da empresa">
+          <input type="text" class="form-control" id="0" formControlName="nome_empresa">
       </div>
-      <div class="form-group">
+      <div class="form-group custom-col-6">
           <label for="1">Cargo:</label>
-          <input type="text" class="form-control" id="1" formControlName="cargo"
-                          placeholder="Digite aqui o seu cargo">
+          <input type="text" class="form-control" id="1" formControlName="cargo">
+      </div> 
+      </div>
+      <div class="custom-row">
+      <div class="form-group custom-col-6">
+          <label for="1">Entrada:</label>
+          <input type="text" class="form-control" id="1" formControlName="entrada">
+      </div>
+      <div class="form-group custom-col-6">
+          <label for="1">Saida:</label>
+          <input type="text" class="form-control" id="1" formControlName="saida">
+      </div>
+    </div>
+      <div class="form-group">
+          <label for="1">Descrição do cargo:</label>
+          <input type="text" class="form-control" id="1" formControlName="desc_cargo">
       </div>
     </form>
     <div class="row">
@@ -23,7 +37,10 @@
     </div>
 
 </div>
-
+<ng-template #semJob>
+   <h1 class="full-width main-div"> Nenhum emprego foi adicionado ainda. </h1>
+</ng-template>
+<!-- 
 <div [formGroup]="jobForms" *ngFor="let jobForm of jobForms.controls; let i = index">
   <form [formGroupName]="i">{{i}}
     <div class="form-group">
@@ -37,10 +54,10 @@
                          placeholder="Digite aqui o seu cargo">
     </div>
   </form>
-</div>
+</div> -->
 
-<button (click)="addJobForm()">Adicionar Job</button>
-
+<button>Adicionar Job</button>
+<!-- 
 <div class=container>
   {{ this.jobForms.value | json}}
-</div>
+</div> -->

@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 import { FormBuilder, FormGroup, Validators, FormArray } from '@angular/forms';
+
+import { Job } from './../../shared/models/job';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-job',
@@ -10,43 +14,37 @@ import { FormBuilder, FormGroup, Validators, FormArray } from '@angular/forms';
 export class JobComponent implements OnInit {
 
   existingJobForms: FormArray;
-  jobForms: FormArray;
+  existingJobs: Job[] = [];
 
-  existingJobs = [
-    {cargo: 'Cumin', nome_empresa: 'Rufinos'},
-    {cargo: 'Programador', nome_empresa: 'WebDevop'},
-    {cargo: 'Programador Java Pleno', nome_empresa: 'Accenture'}
-  ];
-
-  constructor(private fBuilder: FormBuilder) { }
+  constructor(private fBuilder: FormBuilder,
+              private http: HttpClient) { }
 
   ngOnInit() {
 
     this.existingJobForms = this.fBuilder.array([]);
-    this.jobForms = this.fBuilder.array([]);
 
-    this.getSetExistingJobs();
+    this.http.get('http://localhost:3000/jobs').subscribe(
+      (data: Job[]) => {
+      this.existingJobs = data;
+      this.getSetExistingJobs();
+    }
+    );
+
+    console.log(this.existingJobs);
 
   }
 
-  createJobForm(data = {
-    cargo: null,
-    nome_empresa: null
-  }): FormGroup {
+  createJobForm(job: Job): FormGroup {
 
-        return this.fBuilder.group({
-          cargo: [data.cargo, [Validators.required]],
-          nome_empresa: [data.nome_empresa, [Validators.required]],
-          entrada: [null, [Validators.required]],
-          saida: [null, [Validators.required]],
-          desc_cargo: [null, [Validators.required]]
-        });
+    return this.fBuilder.group({
+      cargo: [job.cargo, [Validators.required]],
+      nome_empresa: [job.nome_empresa, [Validators.required]],
+      entrada: [job.entrada, [Validators.required]],
+      saida: [job.saida, [Validators.required]],
+      desc_cargo: [job.desc_cargo, [Validators.required]]
+    });
   }
 
-
-  addJobForm() {
-    this.jobForms.push(this.createJobForm());
-  }
 
   getSetExistingJobs() {
     this.existingJobs.forEach( job => {

@@ -1,4 +1,5 @@
 
+
 .form-container {
   background-color: #080430;
   padding-top: 10px;
@@ -6,9 +7,38 @@
 }
 
 .form-card {
-  height: 250px;
+  height: auto;
   border: 2px solid black;
   background-color: white;
   margin-top: 10px;
   margin-bottom: 10px;
 }
+
+@media (min-width: 900px) {
+   .form-card {
+     width: 80%;
+   }
+  
+   /* comandos de css abaixo copiados do código-fonte do bootstrap da classe .row*/
+   .custom-row {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+   }
+
+   /* comandos de css abaixo copiados do código-fonte do bootstrap da classe .col-6*/
+   .custom-col-6 {
+    position: relative;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    -ms-flex: 0 0 50%;
+    flex: 0 0 50%;
+    max-width: 50%;
+   }
+   
+ }
+
