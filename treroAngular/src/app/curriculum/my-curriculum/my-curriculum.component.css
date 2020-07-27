@@ -3,15 +3,16 @@
     margin-top: 40px;
 }
 
-.col {
+.row div {
     height: 200px;
     background-color: #222527;
     border: 2px solid yellow;
-    margin: 30px;
     color: yellow;
+    margin: 20px 0px 20px 0px;
     font-size: 45px;
     text-align: center;
     font-weight: bold;
+    cursor: pointer;
     display: -webkit-flex;
     display: flex;
     -webkit-align-items: center;
@@ -20,8 +21,8 @@
     justify-content: center;
 }
 
-@media (max-width: 992px) {
+@media (max-width: md) {
     .col {
-        font-size: 32px;
+        font-size: 20px;
     }
 } 
